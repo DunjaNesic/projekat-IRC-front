@@ -14,22 +14,22 @@ function PregledStanja() {
   const [opremaZaSlanje, setOpremaZaSlanje] = useState();
 
   useEffect(() => {
-    fetch('https://localhost:7286/Prostorija')
+    fetch('https://localhost:7296/Prostorija')
       .then(response => response.json())
       .then(data => setSale(data))
       .catch(error => console.error('Error fetching prostorije:', error));
 
-      fetch('https://localhost:7286/Zaposleni')
+      fetch('https://localhost:7296/Zaposleni')
       .then(response => response.json())
       .then(data => setZaposleni(data))
       .catch(error => console.error('Error fetching zaposleni:', error));
 
-      fetch('https://localhost:7286/Oprema')
+      fetch('https://localhost:7296/Oprema')
       .then(response => response.json())
       .then(data => setOprema(data))
       .catch(error => console.error('Error fetching oprema:', error));
 
-      fetch('https://localhost:7286/Zaduzenje')
+      fetch('https://localhost:7296/Zaduzenje')
       .then(response => response.json())
       .then(data => setZaduzenja(data))
       .catch(error => console.error('Error fetching zaduzenja:', error));

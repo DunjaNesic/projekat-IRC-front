@@ -20,12 +20,12 @@ function OpremaForm() {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    fetch('https://localhost:7286/TipOpreme')
+    fetch('https://localhost:7296/TipOpreme')
       .then((response) => response.json())
       .then((data) => setTipOpremeOptions(data))
       .catch((error) => console.error('Error fetching TipOpreme:', error));
 
-    fetch('https://localhost:7286/Prostorija')
+    fetch('https://localhost:7296/Prostorija')
       .then((response) => response.json())
       .then((data) => setSalaOptions(data))
       .catch((error) => console.error('Error fetching prostorije:', error));
@@ -87,7 +87,7 @@ function OpremaForm() {
       return;
     }
 
-    const apiUrl = 'https://localhost:7286/Oprema';
+    const apiUrl = 'https://localhost:7296/Oprema';
   
     fetch(apiUrl, {
       method: 'POST',

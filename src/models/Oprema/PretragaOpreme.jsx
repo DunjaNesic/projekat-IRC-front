@@ -10,7 +10,7 @@ function PretragaOpreme() {
   const [tipOpremeOptions, setTipOpremeOptions] = useState([]);
 
   useEffect(() => {
-    fetch('https://localhost:7286/Oprema')
+    fetch('https://localhost:7296/Oprema')
       .then(response => response.json())
       .then(data => {
         setOprema(data);
@@ -18,7 +18,7 @@ function PretragaOpreme() {
       })
       .catch(error => console.error('Error fetching data for tipoviOpreme:', error));
 
-    fetch('https://localhost:7286/TipOpreme')
+    fetch('https://localhost:7296/TipOpreme')
       .then(response => response.json())
       .then(data => setTipOpremeOptions(data))
       .catch(error => console.error('Error fetching TipOpreme:', error));

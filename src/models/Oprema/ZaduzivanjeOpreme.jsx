@@ -15,12 +15,12 @@ function ZaduzivanjeOpreme() {
   const [buttonClickCount, setButtonClickCount] = useState(0);
 
     useEffect(() => {
-        fetch('https://localhost:7286/Zaposleni')
+        fetch('https://localhost:7296/Zaposleni')
           .then(response => response.json())
           .then(data => setZaposleni(data))
           .catch(error => console.error('Error fetching data for Zaposleni:', error));
 
-          fetch('https://localhost:7286/Oprema')
+          fetch('https://localhost:7296/Oprema')
           .then(response => response.json())
           .then(data => {setOprema(data)
             setOpremaForCmb(data.filter(item => item.status === 1))
@@ -59,7 +59,7 @@ function ZaduzivanjeOpreme() {
           serijskiBrojOpreme: selectedOprema,      
         };
       
-        fetch('https://localhost:7286/Zaduzenje', {
+        fetch('https://localhost:7296/Zaduzenje', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ function ZaduzivanjeOpreme() {
               throw new Error('Network response was not ok');
             }
             
-            return fetch(`https://localhost:7286/Oprema/${selectedOprema}`, {
+            return fetch(`https://localhost:7296/Oprema/${selectedOprema}`, {
               method: 'PUT',
               headers: {
                 'Content-Type': 'application/json',
@@ -90,20 +90,20 @@ function ZaduzivanjeOpreme() {
 
 
       useEffect(() => {
-        fetch('https://localhost:7286/Zaduzenje')
+        fetch('https://localhost:7296/Zaduzenje')
           .then(response => response.json())
           .then(data => {
             const fetchDetails = data.map(zaduzenje => {
               const { datumZaduzivanja, zaposleniID, serijskiBrojOpreme } = zaduzenje;
       
-              const fetchZaposleni = fetch(`https://localhost:7286/Zaposleni/${zaposleniID}`)
+              const fetchZaposleni = fetch(`https://localhost:7296/Zaposleni/${zaposleniID}`)
                 .then(response => response.json())
                 .then(zaposleniData => {
                   zaduzenje.imePrezime = zaposleniData.imePrezime;
                 })
                 .catch(error => console.error('Error fetching Zaposleni:', error));
       
-              const fetchOprema = fetch(`https://localhost:7286/Oprema/${serijskiBrojOpreme}`)
+              const fetchOprema = fetch(`https://localhost:7296/Oprema/${serijskiBrojOpreme}`)
                 .then(response => response.json())
                 .then(opremaData => {
                   zaduzenje.naziv = opremaData.naziv;

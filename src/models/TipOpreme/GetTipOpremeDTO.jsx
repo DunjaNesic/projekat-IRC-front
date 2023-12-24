@@ -7,7 +7,7 @@ function GetTipOpremeDTO() {
     const [showDefaultOption, setShowDefaultOption] = useState(true);
 
     useEffect(() => {
-        fetch('https://localhost:7286/TipOpreme')
+        fetch('https://localhost:7296/TipOpreme')
           .then(response => response.json())
           .then(data => setTipoviOpreme(data))
           .catch(error => console.error('Error fetching data for tipoviOpreme:', error));

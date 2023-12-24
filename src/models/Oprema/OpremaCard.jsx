@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
 
 function OpremaCard({ title, content, image, serijskiBroj, inventarskiBroj }) {
   return (

@@ -6,7 +6,7 @@ function GetOpremaDTO() {
     const [oprema, setOprema] = useState([]);
 
     useEffect(() => {
-        fetch('https://localhost:7286/Oprema')
+        fetch('https://localhost:7296/Oprema')
           .then(response => response.json())
           .then(data => setOprema(data))
           .catch(error => console.error('Error fetching data for tipoviOpreme:', error));
